@@ -43,7 +43,8 @@ namespace CarGame
             Console.WriteLine("Press 2 for \"Instructions\"");
             Console.WriteLine("Press 3 for \"Exit\"");
             Console.Write("Your choice: ");
-            int choice = int.Parse(Console.ReadLine());
+            int choice;
+            bool isNumber = int.TryParse(Console.ReadLine(), out choice);
             switch (choice)
             {
                 case 1:
@@ -84,15 +85,16 @@ namespace CarGame
                     break;
                 default:
                     Console.Clear();
-                    Console.WriteLine("Invalid choice!");
+                    Console.WriteLine("Invalid choice! Starting Game...");
                     break;
             }
             Console.WriteLine("Please enter the difficulty of the game (1-10):");
-            double difficulty = int.Parse(Console.ReadLine());
+            int difficulty;
+            bool isNumber2 = int.TryParse(Console.ReadLine(), out difficulty);
             while (difficulty < 1 || difficulty > 10)
             {
                 Console.WriteLine("Please enter a valid difficulty (1-10):");
-                difficulty = int.Parse(Console.ReadLine());
+                isNumber2 = int.TryParse(Console.ReadLine(), out difficulty);
             }
             Console.Clear();
             double speed = 100;
@@ -101,7 +103,7 @@ namespace CarGame
             int livesCount = 5;
             Console.BufferHeight = Console.WindowHeight = 20; //set the height of the console
             Console.BufferWidth = Console.WindowWidth = 30; //set the width of the console
-            Object userCar = new Object(); //create new object userCar
+            var userCar = new Object(); //create new object userCar
             {
                 userCar.x = 2; //set the x coordinate of the userCar
                 userCar.y = Console.WindowHeight - 1; //set the y coordinate of the userCar
@@ -124,7 +126,7 @@ namespace CarGame
                     int chance = randomGenerator.Next(0, 100); //declare chance as random number between 0 and 100
                     if (chance < 10) //if chance is less than 10
                     {
-                        Object newObject = new Object(); //create new object newObject
+                        var newObject = new Object(); //create new object newObject
                         {
                             newObject.color = ConsoleColor.Cyan; //set the color of the newObject
                             newObject.c = '-'; //set the symbol of the newObject
@@ -136,7 +138,7 @@ namespace CarGame
                     }
                     else if (chance < 20) //if chance is less than 20
                     {
-                        Object newObject = new Object(); //create new object newObject
+                        var newObject = new Object(); //create new object newObject
                         {
                             newObject.color = ConsoleColor.Cyan; //set the color of the newObject
                             newObject.c = '*'; //set the symbol of the newObject
@@ -148,7 +150,7 @@ namespace CarGame
                     }
                     else
                     {
-                        Object newCar = new Object(); //create new object newCar
+                        var newCar = new Object(); //create new object newCar
                         {
                             newCar.color = ConsoleColor.Green; //set the color of the newCar
                             newCar.x = randomGenerator.Next(0, playfieldWidth); //set the x coordinate of the newCar
@@ -176,8 +178,8 @@ namespace CarGame
                 List<Object> newList = new List<Object>();
                 for (int i = 0; i < objects.Count; i++) //loop through the list of objects
                 {
-                    Object oldCar = objects[i]; //declare oldCar as the object in the list of objects
-                    Object newObject = new Object(); //create new object newObject
+                    var oldCar = objects[i]; //declare oldCar as the object in the list of objects
+                    var newObject = new Object(); //create new object newObject
                     {
                         newObject.x = oldCar.x; //set the x coordinate of the newObject as the x coordinate of the oldCar
                         newObject.y = oldCar.y + 1; //set the y coordinate of the newObject as the y coordinate of the oldCar + 1
