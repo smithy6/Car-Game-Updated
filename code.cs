@@ -102,10 +102,13 @@ namespace CarGame
             Console.BufferHeight = Console.WindowHeight = 20; //set the height of the console
             Console.BufferWidth = Console.WindowWidth = 30; //set the width of the console
             Object userCar = new Object(); //create new object userCar
-            userCar.x = 2; //set the x coordinate of the userCar
-            userCar.y = Console.WindowHeight - 1; //set the y coordinate of the userCar
-            userCar.c = '@'; //set the symbol of the userCar
-            userCar.color = ConsoleColor.Yellow; //set the color of the userCar 
+            {
+                userCar.x = 2; //set the x coordinate of the userCar
+                userCar.y = Console.WindowHeight - 1; //set the y coordinate of the userCar
+                userCar.c = '@'; //set the symbol of the userCar
+                userCar.color = ConsoleColor.Yellow; //set the color of the userCar 
+            }
+            
             Random randomGenerator = new Random(); //create new randomGenerator
             List<Object> objects = new List<Object>(); //create new list of objects
             while (true)
@@ -122,29 +125,38 @@ namespace CarGame
                     if (chance < 10) //if chance is less than 10
                     {
                         Object newObject = new Object(); //create new object newObject
-                        newObject.color = ConsoleColor.Cyan; //set the color of the newObject
-                        newObject.c = '-'; //set the symbol of the newObject
-                        newObject.x = randomGenerator.Next(0, playfieldWidth); //set the x coordinate of the newObject
-                        newObject.y = 0; //set the y coordinate of the newObject
-                        objects.Add(newObject); //add the newObject to the list of objects
+                        {
+                            newObject.color = ConsoleColor.Cyan; //set the color of the newObject
+                            newObject.c = '-'; //set the symbol of the newObject
+                            newObject.x = randomGenerator.Next(0, playfieldWidth); //set the x coordinate of the newObject
+                            newObject.y = 0; //set the y coordinate of the newObject
+                            objects.Add(newObject); //add the newObject to the list of objects
+                        }
+                        
                     }
                     else if (chance < 20) //if chance is less than 20
                     {
                         Object newObject = new Object(); //create new object newObject
-                        newObject.color = ConsoleColor.Cyan; //set the color of the newObject
-                        newObject.c = '*'; //set the symbol of the newObject
-                        newObject.x = randomGenerator.Next(0, playfieldWidth); //set the x coordinate of the newObject
-                        newObject.y = 0; //set the y coordinate of the newObject
-                        objects.Add(newObject); //add the newObject to the list of objects
+                        {
+                            newObject.color = ConsoleColor.Cyan; //set the color of the newObject
+                            newObject.c = '*'; //set the symbol of the newObject
+                            newObject.x = randomGenerator.Next(0, playfieldWidth); //set the x coordinate of the newObject
+                            newObject.y = 0; //set the y coordinate of the newObject
+                            objects.Add(newObject); //add the newObject to the list of objects
+                        }
+                        
                     }
                     else
                     {
                         Object newCar = new Object(); //create new object newCar
-                        newCar.color = ConsoleColor.Green; //set the color of the newCar
-                        newCar.x = randomGenerator.Next(0, playfieldWidth); //set the x coordinate of the newCar
-                        newCar.y = 0; //set the y coordinate of the newCar
-                        newCar.c = '#'; //set the symbol of the newCar
-                        objects.Add(newCar); //add the newCar to the list of objects
+                        {
+                            newCar.color = ConsoleColor.Green; //set the color of the newCar
+                            newCar.x = randomGenerator.Next(0, playfieldWidth); //set the x coordinate of the newCar
+                            newCar.y = 0; //set the y coordinate of the newCar
+                            newCar.c = '#'; //set the symbol of the newCar
+                            objects.Add(newCar); //add the newCar to the list of objects
+                        }
+                        
                     }
                 }
 
@@ -166,10 +178,12 @@ namespace CarGame
                 {
                     Object oldCar = objects[i]; //declare oldCar as the object in the list of objects
                     Object newObject = new Object(); //create new object newObject
-                    newObject.x = oldCar.x; //set the x coordinate of the newObject as the x coordinate of the oldCar
-                    newObject.y = oldCar.y + 1; //set the y coordinate of the newObject as the y coordinate of the oldCar + 1
-                    newObject.c = oldCar.c; //set the symbol of the newObject as the symbol of the oldCar
-                    newObject.color = oldCar.color; //set the color of the newObject as the color of the oldCar
+                    {
+                        newObject.x = oldCar.x; //set the x coordinate of the newObject as the x coordinate of the oldCar
+                        newObject.y = oldCar.y + 1; //set the y coordinate of the newObject as the y coordinate of the oldCar + 1
+                        newObject.c = oldCar.c; //set the symbol of the newObject as the symbol of the oldCar
+                        newObject.color = oldCar.color; //set the color of the newObject as the color of the oldCar
+                    }
                     if (newObject.c == '*' && newObject.y == userCar.y && newObject.x == userCar.x) //if the symbol of the newObject is * and the y coordinate of the newObject is equal to the y coordinate of the userCar and the x coordinate of the newObject is equal to the x coordinate of the userCar
                     {
                         speed -= 20; //decrease the speed by 20
