@@ -1,5 +1,3 @@
-how to optimise code for low latency, fast updates to console (rewrites) with code example:
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
