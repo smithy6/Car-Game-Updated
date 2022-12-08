@@ -17,7 +17,6 @@ namespace CarGame
         public char c;
         public ConsoleColor color;
     }
-
     class Program
     {
         static void PrintOnPosition(int x, int y, char c,
@@ -34,7 +33,6 @@ namespace CarGame
             Console.ForegroundColor = color; //set the color of the string
             Console.Write(str); //print the string
         }
-
         static void Main()
         {
             Console.ForegroundColor = ConsoleColor.Blue;
@@ -108,7 +106,6 @@ namespace CarGame
                 userCar.c = '@'; //set the symbol of the userCar
                 userCar.color = ConsoleColor.Yellow; //set the color of the userCar 
             }
-
             var randomGenerator = new Random(); //create new randomGenerator
             List<Object> objects = new List<Object>(); //create new list of objects
             while (true)
@@ -118,7 +115,6 @@ namespace CarGame
                 {
                     speed = 400; //set the speed to 400 so that it doesn't increase any more
                 }
-
                 bool hitted = false; //declare hitted as false 
                 {
                     int chance = randomGenerator.Next(0, 100); //declare chance as random number between 0 and 100
@@ -132,7 +128,6 @@ namespace CarGame
                             newObject.y = 0; //set the y coordinate of the newObject
                             objects.Add(newObject); //add the newObject to the list of objects
                         }
-                        
                     }
                     else if (chance < 20) //if chance is less than 20
                     {
@@ -144,7 +139,6 @@ namespace CarGame
                             newObject.y = 0; //set the y coordinate of the newObject
                             objects.Add(newObject); //add the newObject to the list of objects
                         }
-                        
                     }
                     else
                     {
@@ -156,10 +150,8 @@ namespace CarGame
                             newCar.c = '#'; //set the symbol of the newCar
                             objects.Add(newCar); //add the newCar to the list of objects
                         }
-                        
                     }
                 }
-
                 while (Console.KeyAvailable) //while there is a key pressed
                 {
                     ConsoleKeyInfo pressedKey = Console.ReadKey(true); //declare pressedKey as the key that is pressed
@@ -229,9 +221,7 @@ namespace CarGame
                 {
                     PrintOnPosition(car.x, car.y, car.c, car.color); //print the symbol of the car on the position of the car
                 }
-
                 // Draw info
-
                 PrintStringOnPosition(8, 4, "Lives: " + livesCount, ConsoleColor.White);
                 PrintStringOnPosition(8, 5, "Speed: " + speed, ConsoleColor.White);
                 PrintStringOnPosition(8, 6, "Acceleration: " + acceleration, ConsoleColor.White);
