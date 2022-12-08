@@ -43,8 +43,7 @@ namespace CarGame
             Console.WriteLine("Press 2 for \"Instructions\"");
             Console.WriteLine("Press 3 for \"Exit\"");
             Console.Write("Your choice: ");
-            int choice;
-            bool isNumber = int.TryParse(Console.ReadLine(), out choice);
+            bool isNumber = int.TryParse(Console.ReadLine(), out int choice);
             switch (choice)
             {
                 case 1:
@@ -89,8 +88,7 @@ namespace CarGame
                     break;
             }
             Console.WriteLine("Please enter the difficulty of the game (1-10):");
-            int difficulty;
-            bool isNumber2 = int.TryParse(Console.ReadLine(), out difficulty);
+            bool isNumber2 = int.TryParse(Console.ReadLine(), out int difficulty);
             while (difficulty < 1 || difficulty > 10)
             {
                 Console.WriteLine("Please enter a valid difficulty (1-10):");
@@ -110,8 +108,8 @@ namespace CarGame
                 userCar.c = '@'; //set the symbol of the userCar
                 userCar.color = ConsoleColor.Yellow; //set the color of the userCar 
             }
-            
-            Random randomGenerator = new Random(); //create new randomGenerator
+
+            var randomGenerator = new Random(); //create new randomGenerator
             List<Object> objects = new List<Object>(); //create new list of objects
             while (true)
             {
